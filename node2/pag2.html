@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<!--<?php
+    $hostname="127.0.0.1";
+    $username="alumno";
+    $password="alumnoipm";
+    $dbname="mydb";        
+    $con=mysqli_connect($hostname,$username, $password);
+    mysqli_select_db($con, $dbname);
+	?>-->
+<head>
+	<title>Formulario</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="form.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<!--
+	<script>
+    function enviar(){
+        nombre = document.getElementById("name").value;
+		email = document.getElementById("email").value;
+		dni = document.getElementById("dni").value;
+        <?php
+			$consulta_sql="INSERT INTO table1 VALUES (nombre, email, dni);";
+		?>
+    }
+</script>
+-->
+	<form id="myForm">
+		<label for="name">Nombre:</label>
+		<input type="text" id="name" name="enter" value=""><br><br>
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="enter" value=""><br><br>
+        <label for="email">Dni:</label>
+		<input type="text" id="dni" name="enter" value=""><br><br>
+		<input type="submit" value="Enviar" Onclick="enviar()">
+	</form>
+	<div id="result"></div>
+</body>
+</html>
+
+	<input type="text" name="enter" class="enter" value="" id="lolz"/>
+    <input type="button" value="click" OnClick="cambiarcolor()"/>
+         
+
+
+
