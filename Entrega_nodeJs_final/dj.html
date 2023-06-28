@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
   <title>Formulario - Dwayne Johnson</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -10,14 +10,20 @@
 </head>
 <body style="background-image: url(1.jpg); background-repeat: no-repeat; background-size: 100% 150%;">
   <script>
+    var validacion1=1;
+    var validacion2=1;
+    var validacion3=1;
       function verificar1(){
     var mail=document.getElementById("campo3").value;
     var mail2=document.getElementById("campo3");
     if(mail.includes('@')&&mail.charAt(mail.length-1)=='m'&&mail.charAt(mail.length-2)=='o'&&mail.charAt(mail.length-3)=='c'&&mail.charAt(mail.length-4)=='.'){
       mail2.style.backgroundColor="rgba(60, 255, 0, 0.5)";
+      document.getElementById("validacion1").value = "1";
     }
     else{
       mail2.style.backgroundColor="rgba(255, 0, 0, 0.5)";
+      document.getElementById("validacion1").value = "0";
+
     }
   }
   function verificar2(){
@@ -25,9 +31,11 @@
     var Dni=document.getElementById("campo1");
     if(dni.length==8){
       Dni.style.backgroundColor="rgba(60, 255, 0, 0.5)";
+      document.getElementById("validacion2").value = "1";
     }
     else{
       Dni.style.backgroundColor="rgba(255, 0, 0, 0.5)";
+      document.getElementById("validacion2").value = "0";
     }
   }
   function verificar3(){
@@ -36,6 +44,10 @@
       alert("Rellenar el espacio mensaje");
       document.body.style.background ="#f3f3f3 url(angry.jpeg) no-repeat";
       document.body.style.backgroundSize = "100% 100%";
+      document.getElementById("validacion3").value = "0";
+    }
+    else{
+      document.getElementById("validacion3").value = "1";
     }
   }
   function cute(){
@@ -66,10 +78,12 @@
           <div class="form-group">
             <label for="campo2">Dni</label>
             <input type="text" id="campo1" name="campo1" oninput="verificar2()">
+            <input type="hidden" id="validacion2" name="validacion2" value="0">
           </div>
           <div class="form-group" id="Email">
             <label for="campo3">Email</label>
             <input type="text" id="campo3" name="campo3" oninput="verificar1()">
+            <input type="hidden" id="validacion1" name="validacion1" value="0">
           </div>
           <div class="form-group">
             <label for="campo4">Mensaje para Dwayne</label>
@@ -102,6 +116,7 @@
               </div>
       
           <input type="submit" class="btn btn-primary" onclick="verificar3()" value="Enviar"></input>
+          <input type="hidden" id="validacion3" name="validacion3" value="1">
         </form>
       </div>
     </div>

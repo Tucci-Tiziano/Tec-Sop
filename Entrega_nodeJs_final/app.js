@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const port = 4000;
 const bodyParser = require('body-parser'); // Importar body-parser
-
+ 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/formulario', (req, res) => {
@@ -26,6 +26,10 @@ var connection = mysql.createConnection({
   database: 'mydb'
 });
 app.post('/guardar', (req, res) => {
+  //http://localhost:4000/formulario
+  const validacion1 = req.body.validacion1;   
+  const validacion2 = req.body.validacion2;   
+  const validacion3 = req.body.validacion3;   
   const campo1 = req.body.campo1;
   const campo2 = req.body.campo2;
   const campo3 = req.body.campo3;
@@ -35,6 +39,10 @@ app.post('/guardar', (req, res) => {
   console.log(campo2);
   console.log(campo3);
   console.log(campo4);
+  console.log(validacion1);
+  console.log(validacion2);
+  console.log(validacion3);
+  if(validacion1==1 && validacion2==1 && validacion3==1){
   const sql = 'INSERT INTO table1 (dni, nombreApellido, email, mensaje) VALUES ("'+campo1+'", "'+campo2+'", "'+campo3+'", "'+campo4+'")';
   connection.query(sql, function (error, results) {
     if (error) {
@@ -46,6 +54,9 @@ app.post('/guardar', (req, res) => {
     }
   });
   connection.end();
+  } else {
+    console.log("Formulario no valido");
+  }
 });
 connection.connect(function (error) {
   if (error) {
